@@ -42,7 +42,7 @@ class Game < Gosu::Window
     # score, and status of the game
     @ufo = UFO.new(self)
     @game_over = false
-    @song = Gosu::Song.new("songs/Bowie-ArtofWar.mp3")
+#    @song = Gosu::Song.new("songs/Bowie-ArtofWar.mp3")
     @sound  = Gosu::Sample.new("songs/shooting.wav")
     @destroyed = Gosu::Sample.new("songs/destroyed.wav")
     @destroyedAtVoid = Gosu::Sample.new("songs/bangLarge.wav")
@@ -126,7 +126,7 @@ class Game < Gosu::Window
       check_for_collision
       check_for_collision_ball 
       check_for_collion_ball_brick
-      @song.play
+      # @song.play
       def button_down(id) # Shoots a fireball if spacebar was pressed
         @fireballs << FireBall.new(@ufo.x,@ufo.y,self) && @sound.play if button_down?(Gosu::KbSpace)
         close if button_down?(Gosu::KbQ)
@@ -135,10 +135,10 @@ class Game < Gosu::Window
 
     # Keep the background song playing if the game is over
     if @lives.lives == 0 
-      @song.play
+      # @song.play
       @game_over = true
     elsif @aliens == [[],[],[],[],[],[],[]]
-      @song.play
+      # @song.play
       @game_over = true
     end
     #stopping the game
@@ -246,99 +246,3 @@ end
 # Displays game
 window = Game.new
 window.show
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Period 6 -------------------------------------------------
-
-# require 'gosu'
-# require_relative 'mouse.rb'
-
-# class Game < Gosu::Window
-  
-#   WIDTH = 800
-#   HEIGHT = 600
-
-#   def initialize
-#     super(WIDTH, HEIGHT)
-#     self.caption = ("Mouse Simulation")
-#     @mouse = Mouse.new(self)
-#   end
-
-#   def draw
-#     @mouse.draw
-#   end
-
-#   def update
-#     rotate_mouse
-#   end
-
-#   private
-
-#   def rotate_mouse
-#     @mouse.rotate(:left) if button_down?(Gosu::KbA)
-#     @mouse.rotate(:right) if button_down?(Gosu::KbS)
-
-#   end
-
-# end
-
-# game = Game.new
-# game.show
-
-
-#Original ---------------------------------------------------
-
-# require 'gosu'
-# require_relative 'mouse.rb'
-
-# class Game < Gosu::Window
-
-#   HEIGHT = 800
-#   WIDTH = 600
-
-#   def initialize
-#     super(HEIGHT, WIDTH)
-#     self.caption = "Mouse"
-#     @mouse = Mouse.new(self)
-#   end
-
-#   def draw
-#     @mouse.draw
-#     Gosu::Font.new(40).draw("Hi", 10, 10, 2, 1, 1, Gosu::Color::WHITE)
-#   end
-
-#   def update
-#     rotate_mouse
-#   end
-
-#   def rotate_mouse
-#     @mouse.rotate(:left) if button_down?(Gosu::KbA)
-#     @mouse.rotate(:right) if button_down?(Gosu::KbS)
-#   end
-
-# end
-
-# game = Game.new
-# game.show

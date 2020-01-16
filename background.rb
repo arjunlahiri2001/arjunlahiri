@@ -2,7 +2,7 @@ class Background < Gosu::Image
 
 	def initialize
 		super("images/spaceImage.png") #Initializes background to the spaceImage pic
-																	 #when game loads
+									   #when game loads
 	end
 
 	def draw 

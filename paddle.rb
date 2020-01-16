@@ -26,9 +26,7 @@ class UFO < Gosu::Image
     @x -= @velocity if direction == :left
   end
 
-  #Private methods ----------------------------------------------------
-  private 
-  
+
   def radius
     width / 2
   end

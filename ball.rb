@@ -2,8 +2,9 @@ class FireBall < Gosu::Image
 
   SPEED = 20
   
-  attr_reader :x, :y
-  attr_accessor :velocity_x, :velocity_y
+  attr_reader :x, :y # program will read the x and y coordinates of the fireball
+  attr_accessor :velocity_x, :velocity_y # the program will access velocities, especially if
+                                         # fireball bounces off the walls
 
   def initialize(x, y, window)
     super("images/fireball.png")
@@ -44,6 +45,7 @@ class FireBall < Gosu::Image
 
   #Helper methods for bounce_off_walls --------------------------------
 
+  # Method changes direction of fireball by multiplying velocities by -1
   def change_direction(axis)
     if axis == :x
       @velocity_x *= -1
@@ -52,6 +54,7 @@ class FireBall < Gosu::Image
     end  
   end
 
+  # Boolean method to check if fireball has hit the boundaries
   def hit_wall?(wall)
     if wall == :top
       hit_top_wall?
